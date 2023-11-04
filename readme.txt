@@ -1,4 +1,4 @@
-=== Password Security Settings ===
+=== Password Security ===
 Contributors: thartl
 Requires at least: 6.1
 Tested up to: 6.4
