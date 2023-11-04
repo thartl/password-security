@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  Password Security Settings
+Plugin Name:  Password Security
 Plugin URI:   https://parkdalewire.com
 Description:  Helps enforce password security strength for WordPress user accounts.
 Author:       Tomas Hartl
