@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 
 
 add_action( 'admin_init', __NAMESPACE__ . '\register_settings' );
-function register_settings() {
+function register_settings(): void {
 
 	register_setting( 'general', 'th_custom_password_strength', __NAMESPACE__ . '\th_password_strength_options_sanitize' );
 
@@ -31,7 +31,7 @@ function register_settings() {
 }
 
 
-function render_password_strength_radio_buttons() {
+function render_password_strength_radio_buttons(): void {
 
 	$option = get_option( 'th_custom_password_strength' )['option'] ?? '2';
 
@@ -54,7 +54,7 @@ function render_password_strength_radio_buttons() {
 }
 
 
-function th_password_strength_options_sanitize( $input ) {
+function th_password_strength_options_sanitize( $input ): array {
 
 	$output  = [];
 	$allowed = [ '1', '2', '3' ];

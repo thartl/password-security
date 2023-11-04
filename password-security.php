@@ -24,13 +24,11 @@ defined( 'ABSPATH' ) || exit;
 
 
 const TH_PASSWORD_SECURITY_VERSION = '0.1.0';
-const TH_PASSWORD_SECURITY_DIR     = __DIR__;
 
 define( 'TH_PASSWORD_SECURITY_BASENAME', plugin_basename( __FILE__ ) );
 
 $th_password_security_url = plugin_dir_url( __FILE__ );
 if ( is_ssl() ) {
-
 	$th_password_security_url = str_replace( 'http://', 'https://', $th_password_security_url );
 }
 define( 'TH_PASSWORD_SECURITY_DIR_URL', $th_password_security_url );

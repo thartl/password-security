@@ -56,7 +56,7 @@ function add_disallow_weak_passwords_style(): void {
 
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\load_password_strength_script' );
 add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\load_password_strength_script' );
-function load_password_strength_script() {
+function load_password_strength_script(): void {
 
 	$password_strength = password_strength();
 
