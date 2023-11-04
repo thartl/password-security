@@ -6,7 +6,7 @@ Description:  Helps enforce password security strength for WordPress user accoun
 Author:       Tomas Hartl
 Version:      0.1.0
 Requires PHP: 7.4
-Requires WP:  6.0
+Requires WP:  6.1
 Tested up to: 6.4
 
 

@@ -1,6 +1,6 @@
 === Password Security Settings ===
 Contributors: thartl
-Requires at least: 8.0
+Requires at least: 6.1
 Tested up to: 6.4
 Requires PHP: 7.4
 License: GPLv2 or later
