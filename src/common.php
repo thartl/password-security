@@ -89,6 +89,18 @@ function load_password_strength_script(): void {
 			'strength' => (int) $password_strength,
 		));
 	}
-}
 
+	if ( $password_strength == 3 ) {
+
+		// Translate some password-strength labels.
+		wp_localize_script('password-strength-meter', 'pwsL10n', array(
+			'unknown'  => _x( 'Password strength unknown', 'password strength' ),
+			'short'    => _x( 'Very weak', 'password strength' ),
+			'bad'      => _x( 'Weak - Medium', 'password strength' ),
+			'good'     => _x( 'Weak - Medium', 'password strength' ),
+			'strong'   => _x( 'Strong', 'password strength' ),
+			'mismatch' => _x( 'Mismatch', 'password mismatch' ),
+		));
+	}
+}
 
