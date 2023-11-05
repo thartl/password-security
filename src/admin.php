@@ -6,6 +6,11 @@ defined( 'ABSPATH' ) || exit;
 
 
 add_action( 'admin_init', __NAMESPACE__ . '\register_settings' );
+/**
+ * Add settings fields.
+ *
+ * @return void
+ */
 function register_settings(): void {
 
 	register_setting( 'general', 'th_custom_password_strength', __NAMESPACE__ . '\th_password_strength_options_sanitize' );
@@ -31,6 +36,11 @@ function register_settings(): void {
 }
 
 
+/**
+ * Print settings fields.
+ *
+ * @return void
+ */
 function render_password_strength_radio_buttons(): void {
 
 	$option = get_option( 'th_custom_password_strength' )['option'] ?? '2';
@@ -54,6 +64,13 @@ function render_password_strength_radio_buttons(): void {
 }
 
 
+/**
+ * Sanitize password settings fields.
+ *
+ * @param $input
+ *
+ * @return array
+ */
 function th_password_strength_options_sanitize( $input ): array {
 
 	$output  = [];
@@ -73,6 +90,13 @@ function th_password_strength_options_sanitize( $input ): array {
 
 
 add_filter( 'plugin_action_links_' . TH_PASSWORD_SECURITY_BASENAME, __NAMESPACE__ . '\plugin_settings_link' );
+/**
+ * Add a Settings link.
+ *
+ * @param $links
+ *
+ * @return mixed
+ */
 function plugin_settings_link( $links ) {
 
 	$settings_link = '<a href="' . admin_url( 'options-general.php#th-password-settings-section' ) . '">Settings</a>';

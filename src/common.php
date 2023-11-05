@@ -5,6 +5,11 @@ namespace ParkdaleWire\PasswordSecurity;
 defined( 'ABSPATH' ) || exit;
 
 
+/**
+ * Get the password strength setting value, or fall back to default "Medium-strength required".
+ *
+ * @return int|null
+ */
 function password_strength(): ?int {
 
 	static $password_strength = null;
@@ -17,6 +22,11 @@ function password_strength(): ?int {
 }
 
 
+/**
+ * Print styles for modified password-strength requirements.
+ *
+ * @return void
+ */
 function print_password_security_styles(): void {
 
 	echo /** @lang HTML */ <<<'CSS'
@@ -41,7 +51,7 @@ CSS;
 add_action( 'admin_head', __NAMESPACE__ . '\add_disallow_weak_passwords_style' );
 add_action( 'login_head', __NAMESPACE__ . '\add_disallow_weak_passwords_style' );
 /**
- * Description.
+ * Hook in styles for modified password-strength requirements, for admin and login pages.
  *
  * @return void
  */
@@ -56,6 +66,11 @@ function add_disallow_weak_passwords_style(): void {
 
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\load_password_strength_script' );
 add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\load_password_strength_script' );
+/**
+ * Enqueue a script that adjusts the functionality of password-strength validation on pages with user account password fields.
+ *
+ * @return void
+ */
 function load_password_strength_script(): void {
 
 	$password_strength = password_strength();

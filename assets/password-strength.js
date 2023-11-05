@@ -55,7 +55,7 @@
       const originalScore = originalMeterFunction( password1, disallowedList, password2 );
 
       if ( originalScore === 3 ) {
-        // If the original score is 3 (medium/good), we want to treat it as 2 (weak|very weak/bad).
+        // If the original score is 3 (medium/good), we want to treat it as 2 (weak/bad).
         return 2;
       }
       else {
