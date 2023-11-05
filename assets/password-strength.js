@@ -2,10 +2,9 @@
 
   $( document ).ready( function() {
 
-    const $resetPassNote = $( '#resetpassform div.pw-weak' );
-    const $adminPassNote = $( 'tr#password ~ tr.pw-weak' );
+    const $allowWeakControl = $( '#resetpassform div.pw-weak, tr#password ~ tr.pw-weak' );
 
-    if ( ! $resetPassNote.length && ! $adminPassNote.length ){
+    if ( !$allowWeakControl.length ) {
       return;
     }
 
@@ -19,19 +18,15 @@
      * WordPress default behavior, we bail here.
      */
     if ( reqStrength === 1 ) {
-      return; //
+      return;
     }
 
 
     /**
      * At least Medium password is required.
      */
-    const strengthLabel = reqStrength === 2 ? 'Medium or better' : 'Strong';
-
-    // Adjust password-strength-related messaging.
-    const message = '<span class="emphasis">' + strengthLabel + ' password</span> is required.';
-    $resetPassNote.html( '<span class="pass-requirements">' + message + '</span>' );
-    $adminPassNote.html( '<th></th><td><span class="pass-requirements">' + message + '</span></td>' );
+    // Remove ability to bypass security requirements.
+    $allowWeakControl.html( '' );
 
 
     /**
