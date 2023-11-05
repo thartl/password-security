@@ -22,52 +22,10 @@ function password_strength(): ?int {
 }
 
 
-/**
- * Print styles for modified password-strength requirements.
- *
- * @return void
- */
-function print_password_security_styles(): void {
-
-	echo /** @lang HTML */ <<<'CSS'
-<style>
-    tr#password ~ tr.pw-weak th,
-    tr#password ~ tr.pw-weak td {
-        padding-top: 0;
-    }
-    #resetpassform div.pw-weak span.pass-requirements,
-    tr#password ~ tr.pw-weak td span.pass-requirements {
-    	display: block;
-    	color: #a2050a;
-    	font-weight: 700;
-    	padding-left: 3px;
-    	margin-top: -10px;
-    }
-</style>
-CSS;
-}
-
-
-add_action( 'admin_head', __NAMESPACE__ . '\add_disallow_weak_passwords_style' );
-add_action( 'login_head', __NAMESPACE__ . '\add_disallow_weak_passwords_style' );
-/**
- * Hook in styles for modified password-strength requirements, for admin and login pages.
- *
- * @return void
- */
-function add_disallow_weak_passwords_style(): void {
-
-	if ( password_strength() > 1 ) {
-
-		print_password_security_styles();
-	}
-}
-
-
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\load_password_strength_script' );
 add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\load_password_strength_script' );
 /**
- * Enqueue a script that adjusts the functionality of password-strength validation on pages with user account password fields.
+ * Enqueue custom password-strength validation js.
  *
  * @return void
  */
