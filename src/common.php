@@ -33,11 +33,14 @@ function load_password_strength_script(): void {
 
 	$password_strength = password_strength();
 
+	$script_debug = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+	$suffix       = $script_debug ? '' : '.min';
+
 	if ( $password_strength > 1 ) {
 
 		wp_enqueue_script(
 			'pw-password-strength',
-			TH_PASSWORD_SECURITY_DIR_URL . 'assets/password-strength.js',
+			TH_PASSWORD_SECURITY_DIR_URL . 'assets/password-strength' . $suffix . '.js',
 			[ 'jquery', 'password-strength-meter', 'zxcvbn-async' ],
 			TH_PASSWORD_SECURITY_VERSION,
 			true

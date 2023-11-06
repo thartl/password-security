@@ -1,0 +1,11 @@
+{
+  "name": "password-security",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "terser": "^5.24.0"
+  },
+  "scripts": {
+    "minify": "for file in assets/*.js; do if [[ \"$file\" != *.min.js ]]; then terser $file -o ${file%.js}.min.js -c -m; fi; done",
+    "watch": "nodemon --watch assets/ --ignore '*.min.js' -e js --exec npm run minify"
+  }
+}

@@ -16,6 +16,9 @@ This plugin adds two options to the Settings > General screen:
 
 == Changelog ==
 
+= 0.2.0 =
+* Simpler messaging
+* Add build script
+
 = 0.1.0 =
 * Initial beta release
-
