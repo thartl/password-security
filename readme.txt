@@ -58,12 +58,6 @@ From your WordPress dashboard
 **Support Forum** You may create a new thread on this plugin's support forum. We will do our best to answer your questions.
 We will consider feature requests as time allows.
 
-= What are the override values? =
-
-**1** = WordPress default
-**2** = Medium-strength password required
-**3** = Strong password required
-
 = How can I override the setting with a filter? =
 
 **Example of a filter override:**
@@ -82,6 +76,12 @@ const TH_CUSTOM_PASSWORD_STRENGTH = 3; // Require strong password`
 
 **Example - Strong password:**
 wp config set TH_CUSTOM_PASSWORD_STRENGTH 3
+
+= What are the override values? =
+
+**1** = WordPress default
+**2** = Medium-strength password required
+**3** = Strong password required
 
 
 == Changelog ==
