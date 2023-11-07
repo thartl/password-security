@@ -64,11 +64,11 @@ function render_password_strength_radio_buttons(): void {
 
 			$disabled = 'disabled';
 
-            if ( $config_override ) {
-	            $override_note = '<p>Password strength is set in wp-config, via the `TH_CUSTOM_PASSWORD_STRENGTH` constant.<br>&nbsp;</p>';
-            } else {
-	            $override_note = '<p>Password strength is set in code, via the `th_custom_password_strength` filter.<br>&nbsp;</p>';
-            }
+			if ( $config_override ) {
+				$override_note = '<p>Password strength is set in wp-config, via the `TH_CUSTOM_PASSWORD_STRENGTH` constant.<br>&nbsp;</p>';
+			} else {
+				$override_note = '<p>Password strength is set in code, via the `th_custom_password_strength` filter.<br>&nbsp;</p>';
+			}
 
 			if ( $password_strength != $str_override ) {
 				update_option( 'th_custom_password_strength', array( 'option' => (string) $str_override ) );
