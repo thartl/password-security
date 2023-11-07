@@ -45,7 +45,7 @@ function render_password_strength_radio_buttons(): void {
 
 	$disabled          = '';
 	$override_note     = '';
-    $config_override   = 0;
+	$config_override   = 0;
 	$password_strength = (int) get_option( 'th_custom_password_strength' )['option'] ?? 2;
 
 	if ( defined( 'TH_CUSTOM_PASSWORD_STRENGTH' ) && is_numeric( TH_CUSTOM_PASSWORD_STRENGTH ) ) {
