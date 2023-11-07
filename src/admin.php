@@ -43,21 +43,56 @@ function register_settings(): void {
  */
 function render_password_strength_radio_buttons(): void {
 
-	$option = get_option( 'th_custom_password_strength' )['option'] ?? '2';
+	$disabled          = '';
+	$override_note     = '';
+    $config_override   = 0;
+	$password_strength = (int) get_option( 'th_custom_password_strength' )['option'] ?? 2;
+
+	if ( defined( 'TH_CUSTOM_PASSWORD_STRENGTH' ) && is_numeric( TH_CUSTOM_PASSWORD_STRENGTH ) ) {
+		$str_override = TH_CUSTOM_PASSWORD_STRENGTH;
+		$config_override = 1;
+	} else {
+		$str_override = apply_filters( 'th_password_strength_override', false );
+	}
+
+	if ( $str_override !== false ) {
+
+		$str_override = (int) $str_override;
+		$allowed      = [ 1, 2, 3 ];
+
+		if ( in_array( $str_override, $allowed ) ) {
+
+			$disabled = 'disabled';
+
+            if ( $config_override ) {
+	            $override_note = '<p>Password strength is set in wp-config, via the `TH_CUSTOM_PASSWORD_STRENGTH` constant.<br>&nbsp;</p>';
+            } else {
+	            $override_note = '<p>Password strength is set in code, via the `th_custom_password_strength` filter.<br>&nbsp;</p>';
+            }
+
+			if ( $password_strength != $str_override ) {
+				update_option( 'th_custom_password_strength', array( 'option' => (string) $str_override ) );
+			}
+
+			$password_strength = $str_override;
+		}
+	}
+
+	echo $override_note;
 
 	?>
     <fieldset>
         <label for="th-password-strength-default">
-            <input type="radio" id="th-password-strength-default"
-                   name="th_custom_password_strength[option]" <?php checked( $option, '1' ); ?> value="1">
+            <input type="radio" id="th-password-strength-default" <?php echo $disabled; ?>
+                   name="th_custom_password_strength[option]" <?php checked( $password_strength, '1' ); ?> value="1">
             <span>Allow weak passwords, with confirmation (WordPress default)</span></label><br>
         <label for="th-password-strength-required-medium">
-            <input type="radio" id="th-password-strength-required-medium"
-                   name="th_custom_password_strength[option]" <?php checked( $option, '2' ); ?> value="2">
+            <input type="radio" id="th-password-strength-required-medium" <?php echo $disabled; ?>
+                   name="th_custom_password_strength[option]" <?php checked( $password_strength, '2' ); ?> value="2">
             <span>Require medium-strength passwords</span></label><br>
         <label for="th-password-strength-required-strong">
-            <input type="radio" id="th-password-strength-required-strong"
-                   name="th_custom_password_strength[option]" <?php checked( $option, '3' ); ?> value="3">
+            <input type="radio" id="th-password-strength-required-strong" <?php echo $disabled; ?>
+                   name="th_custom_password_strength[option]" <?php checked( $password_strength, '3' ); ?> value="3">
             <span>Require strong passwords</span></label><br>
     </fieldset>
 	<?php

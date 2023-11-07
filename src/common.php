@@ -15,7 +15,24 @@ function password_strength(): ?int {
 	static $password_strength = null;
 
 	if ( null === $password_strength ) {
+
 		$password_strength = (int) ( get_option( 'th_custom_password_strength' )['option'] ?? 2 );
+
+		if ( defined( 'TH_CUSTOM_PASSWORD_STRENGTH' ) && is_numeric( TH_CUSTOM_PASSWORD_STRENGTH ) ) {
+			$str_override = TH_CUSTOM_PASSWORD_STRENGTH;
+		} else {
+			$str_override = apply_filters( 'th_password_strength_override', false );
+		}
+
+		if ( $str_override !== false ) {
+
+			$str_override = (int) $str_override;
+			$allowed      = [ 1, 2, 3 ];
+
+			if ( in_array( $str_override, $allowed ) ) {
+				$password_strength = $str_override;
+			}
+		}
 	}
 
 	return $password_strength;

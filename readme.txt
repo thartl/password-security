@@ -16,9 +16,13 @@ This plugin adds two options to the Settings > General screen:
 
 == Changelog ==
 
+= 0.3.0 =
+* Add a filter override
+* Add a constant override
+
 = 0.2.0 =
 * Simpler messaging
-* Add build script
+* Add a build script
 
 = 0.1.0 =
 * Initial beta release
