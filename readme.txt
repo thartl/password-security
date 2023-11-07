@@ -33,9 +33,11 @@ To force Medium-strength passwords, set to 2.
 To force strong passwords, set to 3.
 The constant trumps the filter.
 
+With an active override, password-strength settings under Settings > General are read-only.
+
 **Override memory**
 Once an override is set up, and a supported password form is loaded, the override value is copied to the database.
-When you deactivate an override, password requirements remain unchanged until you updated the password strength setting under Settings > General.
+When you deactivate an override, password requirements remain unchanged until you update the password strength setting under Settings > General.
 
 
 == Installation ==
@@ -62,7 +64,7 @@ We will consider feature requests as time allows.
 **2** = Medium-strength password required
 **3** = Strong password required
 
-= How can I override the settings with a filter? =
+= How can I override the setting with a filter? =
 
 **Example of a filter override:**
 `
@@ -70,11 +72,16 @@ add_filter( 'th_password_strength_override', function () {
  	return 2; // Require medium-strength password
  } );`
 
-= How can I override the settings with a constant? =
+= How can I override the setting with a constant? =
 
 **Example of a constant override:**
 `
 const TH_CUSTOM_PASSWORD_STRENGTH = 3; // Require strong password`
+
+= How can I override the setting via WP CLI? =
+
+**Example - Strong password:**
+wp config set TH_CUSTOM_PASSWORD_STRENGTH 3
 
 
 == Changelog ==
