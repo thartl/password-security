@@ -4,7 +4,7 @@ Plugin Name:  Password Security
 Plugin URI:   https://parkdalewire.com
 Description:  Helps enforce password security strength for WordPress user accounts.
 Author:       Tomas Hartl
-Version:      0.3.0
+Version:      0.3.1
 Requires PHP: 7.4
 Requires WP:  6.1
 Tested up to: 6.4
@@ -23,7 +23,7 @@ Tested up to: 6.4
 defined( 'ABSPATH' ) || exit;
 
 
-const TH_PASSWORD_SECURITY_VERSION = '0.3.0';
+const TH_PASSWORD_SECURITY_VERSION = '0.3.1';
 
 define( 'TH_PASSWORD_SECURITY_BASENAME', plugin_basename( __FILE__ ) );
 
