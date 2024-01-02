@@ -22,7 +22,7 @@ Tested up to: 6.4.2
 defined( 'ABSPATH' ) || exit;
 
 
-const TH_PASSWORD_SECURITY_VERSION = '0.3.1';
+const TH_PASSWORD_SECURITY_VERSION = '0.3.2';
 
 define( 'TH_PASSWORD_SECURITY_BASENAME', plugin_basename( __FILE__ ) );
 
