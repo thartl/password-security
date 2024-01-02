@@ -1,7 +1,7 @@
 === Password Security ===
 Contributors: thartl
 Requires at least: 6.1
-Tested up to: 6.4
+Tested up to: 6.4.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -24,6 +24,7 @@ WP CLI password requirements are unmodified.
 Only the following password forms are handled:
 * User edit screen (user-edit.php)
 * User profile screen (profile.php)
+* New user edit screen (user-new.php)
 * Password reset page (wp-login.php?action=rp)
 
 = Code overrides =
