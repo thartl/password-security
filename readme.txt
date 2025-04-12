@@ -86,6 +86,9 @@ wp config set TH_CUSTOM_PASSWORD_STRENGTH 3
 
 == Changelog ==
 
+= 0.3.2 =
+* Update filter note
+
 = 0.3.1 =
 * Fix PHP warning
 
