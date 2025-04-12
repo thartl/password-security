@@ -1,6 +1,6 @@
 <?php
 
-namespace ParkdaleWire\PasswordSecurity;
+namespace TH\PasswordSecurity;
 
 defined( 'ABSPATH' ) || exit;
 

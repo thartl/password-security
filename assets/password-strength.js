@@ -2,7 +2,7 @@
 
   $( document ).ready( function() {
 
-    const $allowWeakControl = $( '#resetpassform div.pw-weak, tr#password ~ tr.pw-weak' );
+    const $allowWeakControl = $( '#resetpassform div.pw-weak, tr.user-pass1-wrap ~ tr.pw-weak' );
 
     if ( !$allowWeakControl.length ) {
       return;
